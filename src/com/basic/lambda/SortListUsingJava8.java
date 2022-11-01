@@ -18,7 +18,7 @@ public class SortListUsingJava8 {
 		integersList.add(56);
 		System.out.println("Before Sort integersList: " + integersList);
 
-		List<Integer> sortedNumberList1 = integersList.stream().sorted().toList();
+		List<Integer> sortedNumberList1 = integersList.stream().sorted().collect(Collectors.toList());
 		System.out.println("After Sort sortedNumberList1: " + sortedNumberList1);
 		
 		List<Integer> sortedNumberList2 = integersList.stream().sorted().collect(Collectors.toList());
@@ -35,7 +35,7 @@ public class SortListUsingJava8 {
 		namesList.add("tolu");
 		System.out.println("Before Sort namesList: " + namesList);
 		
-		List<String> sortedNamesList1 = namesList.stream().sorted().toList();
+		List<String> sortedNamesList1 = namesList.stream().sorted().collect(Collectors.toList());
 		System.out.println("After Sort sortedNamesList1: " + sortedNamesList1);
 		
 		List<String> sortedNamesList2 = namesList.stream().sorted().collect(Collectors.toList());
