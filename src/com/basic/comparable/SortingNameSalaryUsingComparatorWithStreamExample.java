@@ -1,19 +1,18 @@
 package com.basic.comparable;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 //let's sort the employee based on an id in ascending order returns a negative integer, zero, or a positive integer 
 //as this employee id is less than, equal to, or greater than the specified object.
 
-class Employee4 {
+class Employee5 {
 	Integer empId;
 	String empName;
 	Integer empSalary;
 	
-	public Employee4(Integer empId, String empName, Integer empSalary) {
+	public Employee5(Integer empId, String empName, Integer empSalary) {
 		super();
 		this.empId = empId;
 		this.empName = empName;
@@ -43,22 +42,9 @@ class Employee4 {
 	public String toString() {
 		return "Employee2 [empId=" + empId + ", empName=" + empName + ", empSalary=" + empSalary + "]";
 	}
-	
-	public static Comparator<Employee5> sortEmployeeByNameAndSalary = new Comparator<Employee5>() {
-		@Override
-		public int compare(Employee5 e1, Employee5 e2) {
-			int i = Integer.compare(e1.getEmpSalary(), e2.getEmpSalary()); //e1.getEmpName().compareTo(e2.getEmpName());
-			if(i != 0) {
-				return i;
-			}
-			i = e1.getEmpName().compareTo(e2.getEmpName()); //Integer.compare(e1.getEmpSalary(), e2.getEmpSalary());
-			
-			return i;
-		}
-	};
 }
 
-public class SortingNameSalaryUsingComparatorExample {
+public class SortingNameSalaryUsingComparatorWithStreamExample {
 	public static List<Employee5> employees = new ArrayList<>();
 	public static List<Employee5> sal_emp_comparator = new ArrayList<>();
 	public static List<Employee5> name_emp_comparator = new ArrayList<>();
@@ -78,8 +64,8 @@ public class SortingNameSalaryUsingComparatorExample {
 		System.err.println("Current employee List: ");
 		employees.stream().forEach(System.out::println);
 		
-		Collections.sort(employees, Employee4.sortEmployeeByNameAndSalary);
-		System.err.println("Sort employee by Salary and name: ");
-		employees.stream().forEach(System.out::println);
+		Comparator<Employee5> comparatorEmployee5 = Comparator.comparing(Employee5 :: getEmpSalary).thenComparing(Employee5 :: getEmpName);
+		System.err.println("Sort employee by Salary and name using stream: ");
+		employees.stream().sorted(comparatorEmployee5).forEach(System.out::println);
 	}
 }

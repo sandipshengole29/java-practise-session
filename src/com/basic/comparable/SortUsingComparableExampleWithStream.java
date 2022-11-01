@@ -6,7 +6,7 @@ import java.util.List;
 //let's sort the employee based on an id in ascending order returns a negative integer, zero, or a positive integer 
 //as this employee id is less than, equal to, or greater than the specified object.
 
-class Employee1 implements Comparable<Employee4>{
+class Employee1 implements Comparable<Employee1>{
 	int empId;
 	String empName;
 	int empSalary;
@@ -43,21 +43,21 @@ class Employee1 implements Comparable<Employee4>{
 	}
 
 	@Override
-	public int compareTo(Employee4 employee1) {
+	public int compareTo(Employee1 employee1) {
 		return this.getEmpSalary() - employee1.getEmpSalary();
 	}
 	
 }
 
 public class SortUsingComparableExampleWithStream {
-	public static List<Employee4> employees = new ArrayList<>();
+	public static List<Employee1> employees = new ArrayList<>();
 	
 	public static void main(String args[]) {
-		Employee4 e1 = new Employee4(1, "empD", 432);
-		Employee4 e2 = new Employee4(6, "empB", 234);
-		Employee4 e3 = new Employee4(9, "empC", 906);
-		Employee4 e4 = new Employee4(4, "empY", 90);
-		Employee4 e5 = new Employee4(3, "empQ", 2314);
+		Employee1 e1 = new Employee1(1, "empD", 432);
+		Employee1 e2 = new Employee1(6, "empB", 234);
+		Employee1 e3 = new Employee1(9, "empC", 906);
+		Employee1 e4 = new Employee1(4, "empY", 90);
+		Employee1 e5 = new Employee1(3, "empQ", 2314);
 		employees.add(e1);
 		employees.add(e2);
 		employees.add(e3);
@@ -67,7 +67,7 @@ public class SortUsingComparableExampleWithStream {
 		System.err.println("Current employee List: ");
 		employees.stream().forEach(System.out::println);
 		
-		System.err.println("Post sorting employee List: ");
+		System.err.println("Post sorting employee List by Salary: ");
 		employees.stream().sorted().forEach(System.out::println);
 		
 	}
